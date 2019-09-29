@@ -9,12 +9,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curley.goldenbears.model.Player;
 
 /**
- * RestController for Player objects
+ * RestController for Player requests
  * 
  * @author Mayor Curley
  *
@@ -60,5 +61,14 @@ public class PlayerController {
                 94, 85, 99, 99, 98, 64));
         
         return players;
+    }
+    
+    @RequestMapping(value="/player", method=RequestMethod.POST)
+    public Player updatePlayer(
+        @RequestParam(name="firstName", required = true) String firstName,
+        @RequestParam(name="lastName", required = true) String lastName) {
+        player.setFirstName(firstName);
+        player.setLastName(lastName);
+        return player;
     }
 }

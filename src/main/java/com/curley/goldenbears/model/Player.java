@@ -26,7 +26,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private String team;
-    private String qb;
+    private String position;
     private int overall;
     private int awareness;
     private int speed;
@@ -38,13 +38,13 @@ public class Player {
         super();
     }
 
-    public Player(String firstName, String lastName, String team, String qb, int overall, int awareness, int speed,
+    public Player(String firstName, String lastName, String team, String position, int overall, int awareness, int speed,
             int acceleration, int agility, int strength) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.team = team;
-        this.qb = qb;
+        this.position = position;
         this.overall = overall;
         this.awareness = awareness;
         this.speed = speed;
@@ -85,12 +85,12 @@ public class Player {
         this.team = team;
     }
 
-    public String getQb() {
-        return qb;
+    public String getPosition() {
+        return position;
     }
 
-    public void setQb(String qb) {
-        this.qb = qb;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public int getOverall() {
@@ -155,7 +155,7 @@ public class Player {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + overall;
-        result = prime * result + ((qb == null) ? 0 : qb.hashCode());
+        result = prime * result + ((position == null) ? 0 : position.hashCode());
         result = prime * result + speed;
         result = prime * result + strength;
         result = prime * result + ((team == null) ? 0 : team.hashCode());
@@ -197,10 +197,10 @@ public class Player {
             return false;
         if (overall != other.overall)
             return false;
-        if (qb == null) {
-            if (other.qb != null)
+        if (position == null) {
+            if (other.position != null)
                 return false;
-        } else if (!qb.equals(other.qb))
+        } else if (!position.equals(other.position))
             return false;
         if (speed != other.speed)
             return false;
@@ -219,8 +219,8 @@ public class Player {
      */
     @Override
     public String toString() {
-        return "Player [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", team=" + team + ", qb="
-                + qb + ", overall=" + overall + ", awareness=" + awareness + ", speed=" + speed + ", acceleration="
+        return "Player [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", team=" + team + ", position="
+                + position + ", overall=" + overall + ", awareness=" + awareness + ", speed=" + speed + ", acceleration="
                 + acceleration + ", agility=" + agility + ", strength=" + strength + "]";
     }
 

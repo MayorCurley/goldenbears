@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,6 +70,13 @@ public class PlayerController {
         @RequestParam(name="lastName", required = true) String lastName) {
         player.setFirstName(firstName);
         player.setLastName(lastName);
+        return player;
+    }
+    
+    @RequestMapping(value="/test/json/playerUpdate", method=RequestMethod.PUT, consumes = "application/json")
+    public Player updatePlayer(
+        @RequestBody Player p) {
+        player = p;
         return player;
     }
 }
